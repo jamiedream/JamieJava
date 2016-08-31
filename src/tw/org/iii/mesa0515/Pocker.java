@@ -4,9 +4,9 @@ public class Pocker {
 
 	public static void main(String[] args) {
 		
-		int[] poker = new int[52];
+		int[] poker = new int[5];
 		for(int i=0; i<poker.length; i++){
-			int temp = (int)(Math.random()*52);
+			int temp = (int)(Math.random()*5);
 			//check
 			
 			
