@@ -30,14 +30,12 @@ public class Bike {
 	}
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		return "My Bike";
 	}
 	//lab1525 sysout
 	
 	@Override
 	public boolean equals(Object obj) {
-		// TODO Auto-generated method stub
 		return true;
 	}
 	//lab1526 sysout
