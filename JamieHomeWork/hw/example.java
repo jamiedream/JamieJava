@@ -16,6 +16,8 @@ public class example {
 		    int switchTemp = poker[i];
 		    poker[i] = poker [indexToSwitch];
 		    poker[indexToSwitch] = switchTemp;
+		    System.out.println(poker[i]);
+
 		   }
 		   
 		  }
