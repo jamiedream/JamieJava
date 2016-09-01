@@ -13,6 +13,7 @@ public class LAB1528 {
 		for(int i=0; i<4; i++){
 		// 3.Guess
 			String guess = JOptionPane.showInputDialog("Input");
+			
 		// 4.Check ?A?B
 			if(guess.equals(answer)){
 				isWinner = true;
