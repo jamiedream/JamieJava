@@ -16,7 +16,7 @@ public class Practice_guessnumber {
 			
 			//check A B	
 			String result = checkAB(answer, guess);
-			result = JOptionPane.showMessageDialog(null, "");
+//			result = JOptionPane.showMessageDialog(null, "");
 		}
 
 		

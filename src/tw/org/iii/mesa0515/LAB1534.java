@@ -3,7 +3,7 @@ package tw.org.iii.mesa0515;
 public class LAB1534 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+
 		Bird b = new Bird();
 		//class Bird中宣告例外發生,可利用這個宣告在相關函式中做不同的應用
 		try{
