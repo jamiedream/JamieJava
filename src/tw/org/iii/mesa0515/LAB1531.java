@@ -1,6 +1,6 @@
 package tw.org.iii.mesa0515;
 
-public class LAB152931 {
+public class LAB1531 {
 
 	public static void main(String[] args) {
 
@@ -32,6 +32,7 @@ class LAB15313 implements LAB15311{
 }
 class LAB15314{
 	void m3(LAB15311 b){
+		//呼叫一個可對應的的變數b
 		b.m1();
 		b.m2();
 		//在m3中利用b呼叫m1,m2
@@ -39,4 +40,3 @@ class LAB15314{
 	
 }
 
-//34

@@ -70,7 +70,7 @@ public class LAB1530 extends JFrame implements ActionListener {
 		}
 		
 	}
-	//法1:自己實作一個void
+	//方法1:自己實作一個void
 }
 
 class MyListener implements ActionListener{
@@ -81,6 +81,6 @@ class MyListener implements ActionListener{
 		
 	}	
 }
-//法2:另外撰寫一個class
+//方法2:另外撰寫一個class
 
 
