@@ -11,7 +11,7 @@ public class 正向交換數列 {
 			//列出array有的數列
 		}
 		for(int j=0; j<(array.length); j++){
-			//交換次數為長度-1
+			//交換次數為長度
 			int toSwitch = (int)(Math.random()*(array.length-j)+j);
 			//交換位置,j=0->j:0~(length-1);j=1->j:1~(length-1)....
 

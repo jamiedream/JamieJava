@@ -8,19 +8,29 @@ public class Practice_guessnumber {
 		//generate random answer string
 		String answer = theAnswer(4);
 		System.out.println(answer);
-		 
+		
+		boolean isWinner = false;
 		for(int i=0; i<4; i++){	
 			//guess
 			String guess = JOptionPane.showInputDialog("Input");
-
 			
 			//check A B	
 			String result = checkAB(answer, guess);
-			result = JOptionPane.showMessageDialog(null, "");
+			JOptionPane.showMessageDialog(null, result + ":" + guess);//todo
+			
+			
+			if(answer.equals(guess)){
+				isWinner = true;
+				break;
+			}
+			
 		}
-
-		
 		//result
+		if(isWinner){
+			JOptionPane.showMessageDialog(null, "Win");
+		}else{
+			JOptionPane.showMessageDialog(null, "Lose");
+		}
 	
 	
 }
@@ -33,7 +43,7 @@ static String theAnswer(int n){
 		//列出array有的數列
 	}
 	for(int j=0; j<(array.length); j++){
-		//交換次數為長度-1
+		//交換次數為長度
 		int toSwitch = (int)(Math.random()*(array.length-j)+j);
 		//交換位置,j=0->j:0~(length-1);j=1->j:1~(length-1)....
 
