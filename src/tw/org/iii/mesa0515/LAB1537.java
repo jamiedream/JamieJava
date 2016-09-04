@@ -15,13 +15,13 @@ public class LAB1537 {
 //		if(f1.exists()){
 //			System.out.println("OK");
 //		}
-		
+		long len = f1.length();
+		//取得fl檔案的長度
 		try {
 			FileInputStream fis = new FileInputStream(f1);
 			//需呼叫exception
 //			int c;
-			long len = f1.length();
-			//取得fl檔案的長度
+			
 			byte[] buf = new byte[(int)len];
 			//將長度轉成int存入buf
 			fis.read(buf);
