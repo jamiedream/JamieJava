@@ -1,4 +1,4 @@
-package hw;
+package practice;
 
 import javax.swing.JOptionPane;
 

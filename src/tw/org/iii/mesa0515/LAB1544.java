@@ -15,13 +15,14 @@ public class LAB1544 {
 		System.out.println(set.toString());
 		
 		//迭代
-		Iterator it = set.iterator();
-		while(it.hasNext()){
-			Object obj = it.next();
-			System.out.println((int)obj);
-		}
-		System.out.println("------");
+//		Iterator it = set.iterator();
+//		while(it.hasNext()){
+//			Object obj = it.next();
+//			System.out.println((int)obj);
+//		}
+//		System.out.println("------");
 		for(Object obj:set ){
+			//object可在只有單一物件時使用,為預設函數
 			System.out.println((int)obj);
 		}
 		//常用for each
