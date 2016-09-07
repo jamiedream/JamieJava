@@ -52,53 +52,57 @@ public class MyPainter extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				cleardrawer();				
 			}
-			private void cleardrawer() {
-				drawer.clear();
-				//在Drawer中定義
-			}
+			
 		});
 		undo.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				undodrawer();				
 			}
-			private void undodrawer() {
-				// TODO Auto-generated method stub
-				drawer.undo();
-			}
+			
 		});
 		redo.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				redodrawer();				
 			}
-			private void redodrawer() {
-				// TODO Auto-generated method stub
-				drawer.redo();
-			}
+			
 		});
 		save.addActionListener(new ActionListener() {	
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dosave();		
 			}
-			private void dosave() {
-				BufferedImage bImg = new BufferedImage(drawer.getWidth(), drawer.getHeight(), BufferedImage.TYPE_INT_ARGB);
-			    Graphics2D cg = bImg.createGraphics();
-			    drawer.paintAll(cg);
-			    try {
-			            if (ImageIO.write(bImg, "png", new File("dir1/image.png")))
-			            {
-			                JOptionPane.showMessageDialog(null, "Save OK");
-			            }
-			    } catch (IOException e) {
-			    	JOptionPane.showMessageDialog(null, "Save Fail");
-			    }				
-			}
+							
+			
 		});
 		
 	}
-
+	private void cleardrawer() {
+		drawer.clear();
+		//在Drawer中定義
+	}
+	private void undodrawer() {
+		// TODO Auto-generated method stub
+		drawer.undo();
+	}
+	private void redodrawer() {
+		// TODO Auto-generated method stub
+		drawer.redo();
+	}
+	private void dosave() {
+		BufferedImage bImg = new BufferedImage(drawer.getWidth(), drawer.getHeight(), BufferedImage.TYPE_INT_ARGB);
+	    Graphics2D cg = bImg.createGraphics();
+	    drawer.paintAll(cg);
+	    try {
+	            if (ImageIO.write(bImg, "png", new File("dir1/image.png")))
+	            {
+	                JOptionPane.showMessageDialog(null, "Save OK");
+	            }
+	    } catch (IOException e) {
+	    	JOptionPane.showMessageDialog(null, "Save Fail");
+	    }
+	}
 
 	public static void main(String[] args) {
 		new MyPainter();

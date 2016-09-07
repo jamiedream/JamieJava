@@ -1,5 +1,6 @@
 package tw.org.iii.mesa0515;
 
+import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -42,6 +43,7 @@ public class Drawer extends JPanel{
 		super.paintComponent(g);
 //		System.out.println("1");		
 		Graphics2D g2d = (Graphics2D)g;
+		g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_ATOP, 1.0f));
 		g2d.setColor(Color.blue);
 		g2d.setStroke(new BasicStroke(5));
 //		g2d.drawLine(0, 0, 100, 100);	
