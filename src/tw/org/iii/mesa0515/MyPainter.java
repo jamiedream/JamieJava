@@ -19,6 +19,7 @@ public class MyPainter extends JFrame {
 	private Drawer drawer;
 	private JButton clear, undo, redo, save;
 	private Myclock clock;
+	
 	public MyPainter(){
 		super("MyPainter");
 		setLayout(new BorderLayout());
@@ -35,8 +36,8 @@ public class MyPainter extends JFrame {
 		JPanel topRight = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 		topLeft.add(clear);topLeft.add(undo);topLeft.add(redo);topLeft.add(save);
 		topRight.add(clock);
-		add(topLeft, BorderLayout.WEST);
-		add(topRight, BorderLayout.EAST);
+		top.add(topLeft, BorderLayout.WEST);
+		top.add(topRight, BorderLayout.EAST);
 		add(top, BorderLayout.NORTH);
 		
 		

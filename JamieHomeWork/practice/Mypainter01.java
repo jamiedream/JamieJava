@@ -32,8 +32,8 @@ public class Mypainter01 extends JFrame {
 		JPanel top = new JPanel(new BorderLayout());
 		JPanel topLeft = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		JPanel topRight = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-		add(topLeft, BorderLayout.WEST);
-		add(topRight, BorderLayout.EAST);
+		top.add(topLeft, BorderLayout.WEST);
+		top.add(topRight, BorderLayout.EAST);
 		topLeft.add(clear);topLeft.add(undo);topLeft.add(redo);topLeft.add(save);
 		
 		

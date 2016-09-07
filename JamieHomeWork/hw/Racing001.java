@@ -12,6 +12,7 @@ public class Racing001 extends JFrame {
 	private JButton go;
 	private JLabel[] lanes;
 	private int rank;
+	
 	public Racing001() {
 		super("Racing");
 		
@@ -39,18 +40,18 @@ public class Racing001 extends JFrame {
 				Car[] cars = new Car[8];
 				for(int i=0; i<cars.length; i++){
 					cars[i] = new Car(i);//選擇標號
-					cars[i].start();//開始
+					Thread t1 = new Thread(cars[i]);
+					t1.start();//開始
+					System.out.println();
 				}
-//				for(int i=0; i<cars.length; i++){
-//					cars[i].start();
-//				}
+				
 				
 			}
 
 		});
 	}
 	//車的運行
-	private class Car extends Thread{
+	private class Car implements Runnable{
 		private int num;
 		Car(int num){this.num=num;}
 		@Override
