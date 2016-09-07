@@ -57,7 +57,7 @@ public class Racing001 extends JFrame {
 		public void run() {
 			for(int i=0; i<100; i++){
 				lanes[num].setText(lanes[num].getText()+">");
-				//i到終點產生名次++
+				//i到終點產生名次+
 				if(i==99){
 					lanes[num].setText(lanes[num].getText()+ ++rank);
 				}
