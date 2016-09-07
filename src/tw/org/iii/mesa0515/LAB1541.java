@@ -20,7 +20,6 @@ public class LAB1541{
 					new ObjectOutputStream(
 							new FileOutputStream("dir1/data.dat"));
 			oos.writeObject(s1);
-			//序列化需宣告Serializable
 			oos.flush();
 			oos.close();
 		} catch (Exception e) {

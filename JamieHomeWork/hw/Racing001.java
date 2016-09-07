@@ -12,7 +12,6 @@ public class Racing001 extends JFrame {
 	private JButton go;
 	private JLabel[] lanes;
 	private int rank;
-	
 	public Racing001() {
 		super("Racing");
 		
@@ -40,18 +39,18 @@ public class Racing001 extends JFrame {
 				Car[] cars = new Car[8];
 				for(int i=0; i<cars.length; i++){
 					cars[i] = new Car(i);//選擇標號
-					Thread t1 = new Thread(cars[i]);
-					t1.start();//開始
-					System.out.println();
+					cars[i].start();//開始
 				}
-				
+//				for(int i=0; i<cars.length; i++){
+//					cars[i].start();
+//				}
 				
 			}
 
 		});
 	}
 	//車的運行
-	private class Car implements Runnable{
+	private class Car extends Thread{
 		private int num;
 		Car(int num){this.num=num;}
 		@Override
@@ -62,9 +61,13 @@ public class Racing001 extends JFrame {
 				if(i==99){
 					lanes[num].setText(lanes[num].getText()+ ++rank);
 				}
+				if(rank == 1){
+					interrupt();
+				}
 				try {
-					Thread.sleep((int)(Math.random()*200));//延遲運作.隨機產生睡眠時間(毫秒)
+					Thread.sleep((int)(Math.random()*100));//延遲運作.隨機產生睡眠時間(毫秒)
 				} catch (InterruptedException e) {
+					break;
 				}
 			}
 		}
