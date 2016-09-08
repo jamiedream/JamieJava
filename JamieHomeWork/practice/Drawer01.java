@@ -6,20 +6,41 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.LinkedList;
 
 import javax.swing.JPanel;
 //繪圖板
-public class Drawer01 extends JPanel implements Serializable{
+public class Drawer01 extends JPanel{
 	LinkedList<LinkedList<HashMap<String, Integer>>> lines, recycle;
 	public Drawer01() {
 		MyListener listener = new MyListener();
 		addMouseListener(listener);
 		addMouseMotionListener(listener);
-		lines = new LinkedList<>();//
+		lines = new LinkedList<>();
 		recycle = new LinkedList<>();
+		
+		//serialization
+		try {
+			FileOutputStream fout = new FileOutputStream("dir1/image.png");
+			ObjectOutputStream oos = new ObjectOutputStream(fout);
+			oos.writeObject(lines);
+			oos.flush();
+			oos.close();
+			System.out.println("Done Serializated");
+
+			
+			
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		}
+		
 	}
 	@Override
 	protected void paintComponent(Graphics g) {
@@ -39,15 +60,6 @@ public class Drawer01 extends JPanel implements Serializable{
 				Integer p1x = p1.get("x"), p1y = p1.get("y");
 				g2d.drawLine(p0x, p0y, p1x, p1y);	
 				}
-			
-			
-//			class LINES implements Serializable{
-//				LinkedList<HashMap<String, Integer>> LINES;
-//				LINES(LinkedList<HashMap<String, Integer>> line) {
-//					this.LINES = line;
-//				}
-//				LinkedList<HashMap<String, Integer>> getSign(){return LINES;}
-//			}
 			
 		}
 }
