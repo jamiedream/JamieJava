@@ -60,10 +60,12 @@ public class Racing001 extends JFrame {
 				//i到終點產生名次+
 				if(i==99){
 					lanes[num].setText(lanes[num].getText()+ ++rank);
+					
 				}
-				if(rank == 1){
+				while(rank == 1){
 					interrupt();
 				}
+				
 				try {
 					Thread.sleep((int)(Math.random()*100));//延遲運作.隨機產生睡眠時間(毫秒)
 				} catch (InterruptedException e) {
