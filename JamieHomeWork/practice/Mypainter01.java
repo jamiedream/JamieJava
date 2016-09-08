@@ -7,9 +7,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 import javax.imageio.ImageIO;
+import javax.imageio.stream.FileImageInputStream;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -17,7 +22,7 @@ import javax.swing.JPanel;
 
 public class Mypainter01 extends JFrame {
 	private Drawer01 drawer01;
-	private JButton clear, undo, redo, save;
+	private JButton clear, undo, redo, save, btnSaveDrawer, btnLoadDrawer;
 	public Mypainter01(){
 		super("MyPainter");
 		setLayout(new BorderLayout());
@@ -26,6 +31,8 @@ public class Mypainter01 extends JFrame {
 		undo = new JButton("Undo");
 		redo = new JButton("Redo");
 		save = new JButton("Save");
+		btnSaveDrawer = new JButton("Save drawer");
+		btnLoadDrawer = new JButton("Load drawer");
 //		JPanel top = new JPanel(new FlowLayout(FlowLayout.LEFT));
 //		top.add(clear);top.add(undo);top.add(redo);top.add(save);
 		
@@ -35,8 +42,9 @@ public class Mypainter01 extends JFrame {
 		top.add(topLeft, BorderLayout.WEST);
 		top.add(topRight, BorderLayout.EAST);
 		topLeft.add(clear);topLeft.add(undo);topLeft.add(redo);topLeft.add(save);
-		
-		
+		topLeft.add(btnSaveDrawer);
+		topLeft.add(btnLoadDrawer);
+				
 		add(top, BorderLayout.NORTH);
 		
 		
@@ -96,6 +104,46 @@ public class Mypainter01 extends JFrame {
 			    }				
 			}
 		});
+		btnSaveDrawer.addActionListener(new ActionListener(){
+            @Override
+		            public void actionPerformed(ActionEvent e){
+			try{
+				FileOutputStream fout = new FileOutputStream("dir1/image.ser");
+				ObjectOutputStream oos = new ObjectOutputStream(fout);
+				oos.writeObject(drawer01);
+				oos.close();
+				
+//				System.out.println("saved");
+			} catch (IOException exp) {
+				System.out.println(e.toString());
+			}
+		            }
+		    });
+
+	    btnLoadDrawer.addActionListener(new ActionListener(){
+		            @Override
+		            public void actionPerformed(ActionEvent e){
+			try {
+				FileInputStream fis = new FileInputStream("dir1/image.ser");
+				ObjectInputStream ois = new ObjectInputStream(fis);
+				Drawer01 drawer001 = (Drawer01)ois.readObject();
+				if (drawer001!=null) {
+					remove(drawer01);
+					drawer01 = drawer001;
+					add(drawer01, BorderLayout.CENTER);
+					drawer01.repaint();
+				}
+				else {
+					System.out.println("no drawer loaded!");
+				}
+				ois.close();
+				fis.close();
+				System.out.println("LOADED");
+			} catch (IOException | ClassNotFoundException exp) {
+				System.out.println(e.toString());
+			}
+		            }
+		    });
 		
 	}
 
