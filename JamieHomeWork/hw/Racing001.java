@@ -61,7 +61,7 @@ public class Racing001 extends JFrame {
 				if(i==99){
 					lanes[num].setText(lanes[num].getText()+ ++rank);
 				}
-				if(rank == 1){
+				while(rank == 1){
 					interrupt();
 				}
 				try {
