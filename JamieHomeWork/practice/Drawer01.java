@@ -26,25 +26,6 @@ public class Drawer01 extends JPanel{
 		lines = new LinkedList<>();
 		recycle = new LinkedList<>();
 		
-//		//serialization
-//		try {
-//			FileOutputStream fout = new FileOutputStream("dir1/image.ser");
-//			ObjectOutputStream oos = new ObjectOutputStream(fout);
-//			oos.writeObject(lines);
-//			oos.flush();
-//			oos.close();
-//			System.out.println("Done Serializated");
-//			FileInputStream fis = new FileInputStream("dir1/image.ser");
-//			ObjectInputStream ois = new ObjectInputStream(fis);
-//			lines = (LinkedList<LinkedList<HashMap<String,Integer>>>)ois.readObject();
-//			fis.close();
-//			ois.close();
-//			System.out.println("Done de-Serializated");
-//			
-//		} catch (Exception e) {
-//			System.out.println(e.toString());
-//		}
-		
 	}
 	@Override
 	protected void paintComponent(Graphics g) {
@@ -86,6 +67,7 @@ public class Drawer01 extends JPanel{
 		repaint();
 		}
 	}
+	
 	private class MyListener extends MouseAdapter{
 		@Override
 		public void mousePressed(MouseEvent e) {

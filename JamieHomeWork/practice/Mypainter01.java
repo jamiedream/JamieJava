@@ -6,6 +6,8 @@ import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -19,7 +21,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-
+//load簽名能看到物件序列的作用,重製請再建立一次檔案
 public class Mypainter01 extends JFrame {
 	private Drawer01 drawer01;
 	private JButton clear, undo, redo, save, btnSaveDrawer, btnLoadDrawer;
@@ -123,26 +125,28 @@ public class Mypainter01 extends JFrame {
 	    btnLoadDrawer.addActionListener(new ActionListener(){
 		            @Override
 		            public void actionPerformed(ActionEvent e){
-			try {
-				FileInputStream fis = new FileInputStream("dir1/image.ser");
-				ObjectInputStream ois = new ObjectInputStream(fis);
-				Drawer01 drawer001 = (Drawer01)ois.readObject();
-				if (drawer001!=null) {
-					remove(drawer01);
-					drawer01 = drawer001;
-					add(drawer01, BorderLayout.CENTER);
-					drawer01.repaint();
-				}
-				else {
-					System.out.println("no drawer loaded!");
-				}
-				ois.close();
-				fis.close();
-				System.out.println("LOADED");
-			} catch (IOException | ClassNotFoundException exp) {
-				System.out.println(e.toString());
-			}
+						try {
+							FileInputStream fis = new FileInputStream("dir1/image.ser");
+							ObjectInputStream ois = new ObjectInputStream(fis);
+							Drawer01 drawer001 = (Drawer01)ois.readObject();
+							ois.close();
+							fis.close();
+							if(drawer001 != null){
+								remove(drawer01);
+								drawer01=drawer001;
+								add(drawer01, BorderLayout.CENTER);
+								drawer01.repaint();
+								
+							}
+							
+							
+			//				System.out.println("LOADED");
+						} catch (IOException | ClassNotFoundException exp) {
+							System.out.println(e.toString());
+						}
 		            }
+		           
+		            
 		    });
 		
 	}
